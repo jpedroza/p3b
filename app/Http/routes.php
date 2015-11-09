@@ -11,20 +11,20 @@
 |
 */
 
+//This is the main Welcome function
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
-Route::get('/showb/{word}', 'FormController@getIndex');
+//These are for Manager Ipsum
+Route::get('/manageripsum', 'ManagerIpsumController@getIndex');
+Route::post('/manageripsum', 'ManagerIpsumController@postIndex');
 
-Route::get('/new', function() {
+//These are for Late Night Power Boost
+Route::get('/latenightpowerboost', 'LateNightPowerBoostController@getIndex');
+Route::post('/latenightpowerboost', 'LateNightPowerBoostController@postIndex');
 
-    $view  = '<form method="POST">';
-    //$view .= csrf_field(); //This will be explained more later
-    $view .= 'Title: <input type="text" name="title">';
-    $view .= '<input type="submit">';
-    $view .= '</form>';
-    return $view;
-
-});
+//These are for Superhero User Name Generator
+Route::get('/superherousernamegenerator', 'SuperheroUserNameGeneratorController@getIndex');
+Route::post('/superherousernamegenerator', 'SuperheroUserNameGeneratorController@postIndex');
 
